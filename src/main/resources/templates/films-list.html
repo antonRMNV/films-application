@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Films</title>
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/3409/3409602.png" type="image/png">
+    <link rel="stylesheet" th:href="@{/assets/films-list-style.css}">
+
+</head>
+<body>
+<div th:switch="${films}">
+    <h2 th:case="null">No films found!</h2>
+    <div th:case="*">
+        <h2>Films</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Genre</th>
+                <th>Year</th>
+                <th>Producer</th>
+                <th>Limitation</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="film : ${films}">
+                <td th:text="${film.name}"></td>
+                <td th:text="${film.genre}"></td>
+                <td th:text="${film.year}"></td>
+                <td th:text="${film.producer}"></td>
+                <td th:text="${film.limitation}"></td>
+                <td><a th:href="@{film-update/{id}(id=${film.id})}">Edit</a></td>
+                <td><a th:href="@{film-delete/{id}(id=${film.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <div><a class="add-film" href="/film-create">Add film</a></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/assets/films-create-style.css}">
+</head>
+<body>
+    <form action="#" th:action="@{/film-create}" th:object="${film}" method="post">
+        <div>
+            <label for="name">Name</label>
+            <input type="text" th:field="*{name}" id="name" placeholder="Name">
+        </div>
+        <div>
+            <label for="genre">Genre</label>
+            <input type="text" th:field="*{genre}" id="genre" placeholder="Genre">
+        </div>
+        <div>
+            <label for="year">Year</label>
+            <input type="text" th:field="*{year}" id="year" placeholder="Year">
+        </div>
+        <div>
+            <label for="producer">Producer</label>
+            <input type="text" th:field="*{producer}" id="producer" placeholder="Producer">
+        </div>
+        <div>
+            <label for="limitation">Limitation</label>
+            <input type="text" th:field="*{limitation}" id="limitation" placeholder="Limitation">
+        </div>
+        <div class="submit-add">
+            <input type="submit" value="Add film">
+        </div>
+    </form>
+</body>
+</html>
